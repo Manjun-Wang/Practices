@@ -1,0 +1,75 @@
+package com.manman.datastructure.Practice.comparable;
+
+import java.util.Arrays;
+
+public class SortRectangles {
+    public static void main(String[] args){
+//        Rectangle[] rectangles={new Rectangle(3.4, 5.4),
+//                                new Rectangle(13.24, 55.4),
+//                                new Rectangle(7.4,35.4),
+//                                new Rectangle(1.4,25.4)};
+        Rectangle[] rectangles=new Rectangle[4];
+        rectangles[0]=new Rectangle(3.4,5.4);
+        rectangles[1]=new Rectangle(13.24,55.4);
+        rectangles[2]=new Rectangle(7.4,35.4);
+        rectangles[3]=new Rectangle(1.4,25.4);
+
+        java.util.Arrays.sort(rectangles);
+        for(Rectangle rectangle:rectangles){
+            System.out.println(rectangle+"");
+            System.out.println();
+        }
+          System.out.println("Sort by Length: "+ Arrays.toString(rectangles));
+          System.out.println("Sort by length: "+ rectangles);
+    }
+}
+
+package com.manman.datastructure.Practice.comparable;
+
+
+public class Rectangle implements Comparable<Rectangle> {
+    private double length;
+    private double width;
+    public Rectangle(){
+        length=width=0.0;
+    }
+    public Rectangle(double length, double w){
+        this.length=length;
+        width=w;
+    }
+    public void setLength(double l){
+        length=l;
+    }
+    public void setWidth(double w){
+        width=w;
+    }
+    public double getLength(){
+        return length;
+    }
+    public double getWidth(){
+        return width;
+    }
+    public double getArea(){
+        return length*width;
+    }
+    public String toString(){
+        String str = "Length is "+ length+", Width is "+width;
+        return str;
+    }
+//    public int compareTo(Rectangle rectangle){
+//       return ((int)this.length-(int)rectangle.length);
+//    }
+    public int compareTo(Rectangle rectangle) {
+        if (length == rectangle.length) {
+            return 0;
+        }
+        else if (length < rectangle.length) {
+            return -1;
+        }
+            return 1;
+
+    }
+
+
+
+}
