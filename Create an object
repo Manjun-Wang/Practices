@@ -1,0 +1,62 @@
+package com.manman.datastructure.Practice.ArrayList;
+
+import java.util.*;
+
+public class Practice {
+    public static void main(String[] args) {
+        ArrayList<Integer> newList = new ArrayList<>();
+        newList.add(3);
+        newList.add(2);
+        newList.add(1);
+        newList.add(4);
+        newList.add(1,6);
+        System.out.println("The newList is: ");
+        System.out.println(newList);
+        Collections.sort(newList);
+        newList.size();
+        for (int n : newList) {
+            System.out.println(n);
+        }
+        System.out.println();
+        int product = newList.get(0) * newList.get(1);
+        System.out.println(product);
+        ArrayList<Character> newList1 = new ArrayList<>();
+        newList1.add('a');
+        newList1.add('d');
+        newList1.add('e');
+        newList1.add('s');
+        print(newList);
+        print(newList1);
+    }
+
+    public static <E> void print(ArrayList<E> list) {
+//        for (int i=0;i<=list.size()-1;i++) {
+//            System.out.println(list.get(i));
+//        }
+
+          for(E a:list){
+              System.out.println(list);
+          }
+
+    }
+}
+
+
+
+package com.manman.datastructure.Practice.ArrayList;
+
+public class Practice2 {
+    public static void main(String[] args){
+        Integer[] integers={1,2,3,4,5};
+        Character[] characters={'s','d','f'};
+        print(integers);
+        print(characters);
+    }
+    public static <E> void print(E[] list){
+        for(int i=0;i<=list.length-1;i++){
+            System.out.println(list[i]+"");
+        }
+        System.out.println();
+    }
+}
+
