@@ -1,2 +1,2 @@
 # Practices
-some basic practices
+some basic practices for Java programming
