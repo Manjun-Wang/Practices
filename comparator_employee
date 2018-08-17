@@ -1,0 +1,135 @@
+package com.manman.datastructure.Practice.comparator_employee;
+
+import java.util.Arrays;
+public class EmployeeSortDemo {
+    public static void main(String[] args) {
+        Employee[] empArr = new Employee[4];
+        empArr[0] = new Employee(10, "Mike", 25, 10000);
+        empArr[1] = new Employee(20, "Arthur", 29, 20000);
+        empArr[2] = new Employee(5, "Lisa", 35, 5000);
+        empArr[3] = new Employee(1, "Pat", 32, 50000);
+
+        //under?
+        Arrays.sort(empArr);
+        System.out.println("Default Sorting of Employees list:\n" + Arrays.toString(empArr));
+
+//        SalaryComparator sc = new SalaryComparator();
+//        Arrays.sort(empArr, sc);
+        Arrays.sort(empArr, (curr, next) -> (int) (curr.getSalary() - next.getSalary()));
+        System.out.println("Employees list sorted by Salary:\n" + Arrays.toString(empArr));
+
+        NameComparator nc = new NameComparator();
+        Arrays.sort(empArr, nc);
+        System.out.println("Employees list sorted by Name:\n" + Arrays.toString(empArr));
+
+        EmployeeComparatorByIdAndName idAndName = new EmployeeComparatorByIdAndName();
+        empArr[0] = new Employee(1, "Mikey", 25, 10000);
+        Arrays.sort(empArr, idAndName);
+        System.out.println("Employees list sorted by ID and Name:\n" + Arrays.toString(empArr));
+    }
+}
+
+package com.manman.datastructure.Practice.comparator_employee;
+
+public class Employee implements Comparable<Employee> {
+    private int id;
+    private String name;
+    private int age;
+    private long salary;
+
+    public Employee(int id, String name, int age, long salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int compareTo(Employee employee) {
+        return (this.id - employee.id);
+    }
+
+    @Override
+    public String toString() {
+        return "[id" + this.id + ", name=" + this.name + ", age=" + this.age + ", salary=" + this.salary + "]";
+    }
+}
+
+package com.manman.datastructure.Practice.comparator_employee;
+
+import java.util.Comparator;
+
+public class EmployeeComparatorByIdAndName implements Comparator<Employee>{
+    public int compare(Employee e1, Employee e2){
+        int flag=e1.getId()-e2.getId();
+        if(flag==0)
+            flag=e1.getName().compareTo(e2.getName());
+        return flag;
+    }
+}
+
+package com.manman.datastructure.Practice.comparator_employee;
+
+import com.manman.datastructure.Practice.comparator_employee.Employee;
+
+import java.util.Comparator;
+
+public class NameComparator implements Comparator<Employee> {
+    public int compare(Employee e1, Employee e2){
+        return e1.getName().compareTo(e2.getName());
+    }
+
+}
+
+package com.manman.datastructure.Practice.comparator_employee;
+
+import com.manman.datastructure.Practice.comparator_employee.Employee;
+
+import java.util.Comparator;
+
+public class SalaryComparator implements Comparator<Employee> {
+    public int compare(Employee e1, Employee e2){
+
+        //return (int)(e1.getSalary()-e2.getSalary());
+        if(e1.getSalary()==e2.getSalary()){
+            return 0;
+        }
+        else if (e1.getSalary() < e2.getSalary()){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+    }
+}
