@@ -1,0 +1,90 @@
+package com.manman.datastructure.Practice.Stacks.ADT_linkedlist;
+
+public class LinkStackApp {
+    public static void main(String[] args){
+        LinkStack theStack= new LinkStack();
+        theStack.push(20);
+        theStack.push(40);
+        theStack.displayStack();
+        theStack.push(60);
+        theStack.push(80);
+        theStack.displayStack();
+        theStack.pop();
+        theStack.pop();
+        theStack.displayStack();
+    }
+}
+//try last later;
+
+package com.manman.datastructure.Practice.Stacks.ADT_linkedlist;
+
+public class LinkStack {
+    private LinkList theList;
+    public LinkStack(){
+        theList=new LinkList();
+    }
+    public void push(long j){
+        theList.insertFirst(j);
+    }
+    public long pop(){
+        return theList.deleteFirst();
+    }
+    public boolean isEmpty(){
+        return (theList.isEmpty());
+    }
+    public void displayStack(){
+        System.out.println("Stack (top-->bottom);");
+        theList.displayList();
+    }
+}
+
+package com.manman.datastructure.Practice.Stacks.ADT_linkedlist;
+
+public class LinkList {
+    private Link first;
+
+    public LinkList() {
+        first=null;
+    }
+    public boolean isEmpty(){
+        return(first==null);
+    }
+    public void insertFirst(long dd){
+        Link newNode=new Link(dd);
+        newNode.next=first;
+        first=newNode;
+    }
+    public long deleteFirst(){
+        Link current=first;
+        first=first.getNext();
+        current=first;
+        return current.getdData();
+    }
+    public void displayList(){
+        Link current=first;
+        while(current!=null){
+            current.displayLink();
+            current=current.next;
+        }
+        System.out.println("");
+    }
+}
+
+package com.manman.datastructure.Practice.Stacks.ADT_linkedlist;
+
+public class Link {
+    public long dData;
+    public Link next;
+    public Link(long dData){
+        this.dData=dData;
+    }
+    public long getdData(){
+        return dData;
+    }
+    public Link getNext(){
+        return next;
+    }
+    public void displayLink(){
+        System.out.println(dData +"");
+    }
+}
