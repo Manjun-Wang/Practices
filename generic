@@ -1,0 +1,56 @@
+package com.manman.datastructure.Practice.generic;
+
+public class GenericDemo {
+    public static void main(String[] args){
+        GenericMyClass<String>a=new GenericMyClass<>();
+        double d=new Double(6.4);
+        GenericMyClass<Double>b= new GenericMyClass<>(d, 51);
+        a.setData("Sarah");
+        System.out.println(a.getData()+","+b.getData());
+        System.out.println(a.getNum()+","+b.getNum());
+    }
+}
+
+package com.manman.datastructure.Practice.generic;
+
+import static sun.misc.Version.print;
+
+public class GenericMethodDemo {
+    public static void main(String[] args){
+        Integer[] integers={1,2,3,4,5};
+        String[] strings={"London"," Paris"," New York"," Austin"};
+        //GenericMethodDemo.<Integer>print(integers);
+        //GenericMethodDemo.<String>print(strings);
+        print (integers);    // Q1: is print a method?
+        print (strings);
+    }
+    public static<E> void print(E[] list){   // Q2: what does the 'E' mean? Is it a special type? Why does the program runs good with it?
+        for(int i=0;i<list.length;i++){
+            System.out.print(list[i]+"");
+        }
+        System.out.println();
+    }
+}
+
+package com.manman.datastructure.Practice.generic;
+
+public class GenericMyClass<E> {
+  private E theData;
+  private int n;
+  public GenericMyClass(){
+      n=0;
+  }
+  public GenericMyClass(E initData, int num){
+      theData=initData;
+  }
+  public void setData(E newData){
+      theData=newData;
+  }
+  public E getData(){
+      return theData;
+  }
+  public int getNum(){
+      return n;
+  }
+}
+
