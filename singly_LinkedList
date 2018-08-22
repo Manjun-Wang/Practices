@@ -1,0 +1,110 @@
+package com.manman.datastructure.Homework.singly_LinkedList;
+
+/*singly LinkedList*/
+public class Link<E> {
+    private E data;
+    private Link<E> next;
+
+    public Link(E data) {
+        this.data = data;
+        next = null;
+    }
+
+    public E getData() {
+        return data;
+    }
+
+    public void setData(E data) {
+        this.data = data;
+    }
+
+    public Link<E> getNext() {
+        return next;
+    }
+
+    public void setNext(Link<E> next) {
+        this.next = next;
+    }
+
+    public void displayLink() {
+        System.out.println("" + data + "");
+    }
+
+}
+
+package com.manman.datastructure.Homework.singly_LinkedList;
+
+/*singly LinkedList*/
+public class LinkList<E> {
+    private Link<E> first;
+    private Link<E> last;
+
+    public LinkList() {
+        first = null;
+        last = null;
+    }
+
+    public boolean isEmpty() {
+        return (first == null);
+    }
+
+    public void insertFirst(E data) {
+        Link<E> newNode = new Link<>(data);
+        if (isEmpty()) {
+            first = newNode;
+            last = newNode;
+        } else {
+            newNode.setNext(first);
+            first = newNode;
+        }
+    }
+
+    public void insertLast(E data) {
+        Link<E> newNode = new Link<>(data);
+        if (isEmpty()) {
+            last = newNode;
+            first = newNode;
+        } else {
+            last.setNext(newNode);
+            last = newNode;
+        }
+    }
+
+    public void deleteFirst() {
+        if (first.getNext() == null) {
+            last = null;
+            first = first.getNext();
+        } else {
+            first = first.getNext();
+        }
+    }
+
+    public void displayList() {
+        Link current = first;
+        System.out.println("List(from first-->end):");
+        while (current != null) {
+            current.displayLink();
+            current = current.getNext();
+        }
+        System.out.println();
+    }
+}
+
+
+package com.manman.datastructure.Homework.singly_LinkedList;
+
+public class SingleListedListTestApp {
+    public static void main(String[] args) {
+        LinkList<String> theList = new LinkList<>();
+        theList.insertFirst("James");
+        theList.insertFirst("Tom");
+        theList.insertFirst("Katy");
+        theList.insertFirst("Johns");
+        theList.displayList();
+        theList.deleteFirst();
+        theList.displayList();
+        theList.insertLast("Nana");
+        theList.displayList();
+    }
+}
+
