@@ -1,0 +1,90 @@
+package com.manman.datastructure.Homework.Extra_credit.PriorityQueue;
+
+public class Employee implements Comparable<Employee> {
+    private int id;
+    private String name;
+    private boolean masterDegree;
+    public Employee(int id, String name, boolean masterDegree){
+        this.id=id;
+        this.name=name;
+        this.masterDegree=masterDegree;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean getMasterDegree() {
+        return masterDegree;
+    }
+
+    public void setMasterDegree(boolean masterDegree) {
+        this.masterDegree = masterDegree;
+    }
+    public int compareTo(Employee e1){
+        return this.id-e1.id;
+   }
+    public String toString(){
+        return "Employee id: "+ id +";"+" name: "+ name +";"+" Master Degree: "+ masterDegree;
+    }
+}
+
+package com.manman.datastructure.Homework.Extra_credit.PriorityQueue;
+
+import java.util.Comparator;
+
+public class MasterDegreeComparator implements Comparator<Employee> {
+    public int compare(Employee e1, Employee e2){
+        if(e1.getMasterDegree()==e2.getMasterDegree()){
+            return e1.getId()-e2.getId();
+        }
+        else
+            if(e1.getMasterDegree())
+                return -1;
+            else
+                return 1;
+    }
+
+}
+
+
+package com.manman.datastructure.Homework.Extra_credit.PriorityQueue;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class PriorityQueueEmployeeExample {
+    public static void main(String[] args){
+        PriorityQueue<Employee> q1=new PriorityQueue<>(3);
+        q1.add(new Employee(1,"Elaine",false));
+        q1.add(new Employee(4,"Gloria",false));
+        q1.add(new Employee(3,"Mindy",true));
+        System.out.println("Display by using Comparable status: ");
+        while (!q1.isEmpty()){
+            System.out.println(q1.poll());
+        }
+        Comparator<Employee> e= new MasterDegreeComparator();
+        PriorityQueue<Employee> q= new PriorityQueue<>(3, e);
+        q.add(new Employee(33,"Katy", true));
+        q.add(new Employee(56,"Jim",false));
+        q.add(new Employee(23, "Nana", false));
+        System.out.println("Display by using Comparator MasterDegree: ");
+        while(!q.isEmpty()){
+            System.out.println(q.poll());
+        }
+        System.out.println();
+
+    }
+}
