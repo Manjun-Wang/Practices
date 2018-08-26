@@ -1,0 +1,50 @@
+package com.manman.datastructure.Exam2Review;
+
+//public class Queue {
+//    public int[] A;
+//    public int maxSize;
+//    public int rear;
+//    public int front;
+//    public int size;
+//    public Queue(int maxSize){
+//        this.maxSize = maxSize;
+//        A = new int[maxSize];
+//        rear = -1;
+//        front = -1;
+//    }
+//
+//    public void enqueue(int a){
+//        if(rear == maxSize-1){
+//            rear = -1;
+//        }
+//        rear++;
+//        A[rear] = a;
+//        size++;
+//    }
+//
+//    public int dequeue(){
+//        int temp = A[front];
+//        front++;
+//        if(front == maxSize){
+//            front = 0;
+//        }
+//        size--;
+//        return temp;
+//    }
+//
+//    public int peekFront(){
+//        return A[front];
+//    }
+//
+//    public boolean isEmpty(){
+//        return (size == 0);
+//    }
+//
+//    public boolean isFull(){
+//        return (size == maxSize);
+//    }
+//
+//
+//
+//
+//}
