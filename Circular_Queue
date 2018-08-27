@@ -1,0 +1,93 @@
+package com.manman.datastructure.practice2.queue.Circular;
+
+public class QueueArrayBased {
+    private class QueueException extends RuntimeException{
+        public QueueException(String s){
+            super(s);
+        }
+    }
+
+    private final int MAX_QUEUE=50;
+    private int[] a;
+    private int front;
+    private int back;
+    private int nItem;
+
+    public QueueArrayBased(){
+        a = new int[MAX_QUEUE];
+        front=0;
+        back=MAX_QUEUE-1;    //???????????????????????
+        nItem=0;
+    }
+
+    public boolean isEmpty(){
+        return nItem==0;
+    }
+
+    public boolean isFull(){
+        return nItem==MAX_QUEUE;
+    }
+
+    public void enqueue(int j) throws QueueException{
+        if(!isFull()){
+            back = (back+1)%MAX_QUEUE;
+            a[back]=j;
+            nItem++;
+        }
+        else{
+            throw new QueueException("QueueException on enqueue: Queue full");
+        }
+    }
+
+    public int dequeue() throws QueueException{
+        if(!isEmpty()){
+            int temp= a [front];
+            front = (front+1)%MAX_QUEUE;
+            nItem--;
+            return temp;
+        }
+        else{
+            throw new QueueException("QueueException on dequeue: Queue empty");
+        }
+    }
+
+    public void dequeueAll(){
+        a=new int[MAX_QUEUE];    //换成了另一个array?还是一个a point 两个array--》 重新被assign了一个array
+        front = 0;
+        back = 0;
+        nItem=0;
+    }
+
+    public int peek() throws QueueException{
+        if(!isEmpty()){
+            return a[front];
+        }
+        else{
+            throw new QueueException("Queue exception on peek: Queue empty.");
+        }
+    }
+
+
+}
+
+package com.manman.datastructure.practice2.queue.Circular;
+
+public class QueueArrayBasedDemo {
+    public static void main(String[] args){
+        QueueArrayBased a= new QueueArrayBased();
+        a.enqueue(1);
+        a.enqueue(2);
+        a.enqueue(3);
+
+        a.dequeue();
+
+        a.enqueue(23);
+        a.enqueue(34);
+        a.enqueue(56);
+
+        while(!a.isEmpty()){
+            System.out.print(a.dequeue()+" ");
+        }
+
+    }
+}
