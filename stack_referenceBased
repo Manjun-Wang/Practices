@@ -1,0 +1,88 @@
+package com.manman.datastructure.practice2.stack.referenceBased;
+
+public class Linklist {
+    private Node first;
+    public Linklist(){
+        first=null;
+    }
+    public void insertFirst(int j){
+        Node newNode= new Node(j);
+        newNode.next=first;
+        first=newNode;
+    }
+    public void deleteFirst(){
+        first=first.next;
+    }
+    public boolean isEmpty(){
+        return first==null;
+    }
+    public void displayList(){
+        Node current=first;
+        while(current!=null){
+            current.display();
+            current=current.next;
+        }
+    }
+}
+
+package com.manman.datastructure.practice2.stack.referenceBased;
+
+public class LinkStack {
+    private Linklist thelist;
+    public LinkStack(){
+        thelist = new Linklist();      //Linklist is a new data type. use the type, you need to create an object??
+    }
+    public void push(int j){
+        thelist.insertFirst(j);
+    }
+    public void pop(){
+        thelist.deleteFirst();
+    }
+    public boolean isEmpty(){
+        return thelist.isEmpty();
+    }
+    public void displayStack(){
+        System.out.println("From top to bottom: ");
+        thelist.displayList();
+    }
+
+}
+
+package com.manman.datastructure.practice2.stack.referenceBased;
+
+public class Node {
+    public int value;
+    public Node next;
+
+    public Node(int value) {
+        this.value = value;
+    }
+
+    public void display() {
+        System.out.println(value + "");
+    }
+}
+
+package com.manman.datastructure.practice2.stack.referenceBased;
+
+public class LinkStackApp {
+    public static void main(String[] args){
+        LinkStack theStack = new LinkStack();
+        theStack.push(1);
+        theStack.push(2);
+        theStack.push(3);
+
+        theStack.displayStack();
+
+        theStack.push(23);
+
+        theStack.displayStack();
+
+        while(!theStack.isEmpty()){
+            theStack.pop();
+        }
+
+        theStack.displayStack();
+    }
+}
+
