@@ -1,4 +1,4 @@
-package com.manman.datastructure.Practice.Stacks.ADT_linkedlist;
+
 
 public class LinkStackApp {
     public static void main(String[] args){
