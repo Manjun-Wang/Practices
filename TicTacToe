@@ -1,4 +1,3 @@
-package com.manman.datastructure.Practice.Array;
 
 public class TicTacToe {
     public static final int X=1, O=-1;
