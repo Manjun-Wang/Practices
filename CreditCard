@@ -1,4 +1,3 @@
-package com.manman.self_practice;
 
 public class CreditCard {
     private String customer;
