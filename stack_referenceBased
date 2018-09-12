@@ -1,5 +1,3 @@
-package com.manman.datastructure.practice2.stack.referenceBased;
-
 public class Linklist {
     private Node first;
     public Linklist(){
