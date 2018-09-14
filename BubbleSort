@@ -1,5 +1,4 @@
-package com.manman.datastructure.Practice.Sorting;
-
+package com.manman.datastructure.Practice.
 //public class BubbleSort {
 //    public static void bubblesort(int[] array){
 //        int lastUnsorted = array.length-1;
