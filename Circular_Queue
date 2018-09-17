@@ -1,5 +1,3 @@
-package com.manman.datastructure.practice2.queue.Circular;
-
 public class QueueArrayBased {
     private class QueueException extends RuntimeException{
         public QueueException(String s){
