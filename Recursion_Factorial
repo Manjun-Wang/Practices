@@ -1,4 +1,4 @@
-package com.manman.self_practice;
+package com.manman.
 
 public class Recursion_Factorial {
     public static int factorial(int n)throws IllegalArgumentException{
