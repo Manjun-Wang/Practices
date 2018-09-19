@@ -1,4 +1,4 @@
-package com.manman.datastructure.P
+package com.manma
 
 public class GenericDemo {
     public static void main(String[] args){
