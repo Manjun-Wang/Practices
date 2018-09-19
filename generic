@@ -1,5 +1,3 @@
-
-
 public class GenericDemo {
     public static void main(String[] args){
         GenericMyClass<String>a=new GenericMyClass<>();
