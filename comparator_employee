@@ -1,5 +1,3 @@
-package com.manman.datastructure.Practice.comparator_employee;
-
 import java.util.Arrays;
 public class EmployeeSortDemo {
     public static void main(String[] args) {
