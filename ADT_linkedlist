@@ -1,4 +1,4 @@
-public class LinkStackApp 
+public class LinkStackApp {
     public static void main(String[] args){
         LinkStack theStack= new LinkStack();
         theStack.push(20);
